@@ -1,0 +1,68 @@
+Prévoir :
+1. Aider les joueurs grâce aux numéros de carte pour la mission statue_fond
+2. On ne sait pas quels points on ouvre (ExVoto & Lavoir)
+4. Retravailler les sons
+Autres remarques :
+1. Améliorer la qualité de l'image du vibro
+2. Ajouter les contours de l'esprit plus tôt
+3. Diminuer le son de fond sur les voix aigues
+4. Envoyer vers la statue du fond après le start
+5. Débloquer plus de couleurs 
+6. Ajouter la notion de multitéléphone
+7. Pour Dick, virer la voix laisser juste les aboiements.
+8. Faire peser les indices dans le score final
+10. Tester d'encapsuler l'appli ?? 
+
+********************************
+Date d'installation : 31/05/2022
+Version 1.3
+
+Evolution V1.3 :
+1. Echec du point 2 de la V1.2 : Tentative de correction du bug lié aux rosiers.
+Lorsque les joueurs arrivent sur une page esprit on check :
+si l'esprit 02 n'a pas été trouvé (celui associé aux rosiers)
+et que le point Statue_ex_voto est a l'état terminé alors
+on active la mission des rosiers.
+Nouvelle tentative : J'ai tourné les POI_MAP pour éviter que la zone cliquable 
+des jardins en croix se chevauchent avec le POI des rosiers.
+au passage j'ai aussi tourné la fontaine du bas ainsi que le parc à jeux pour enfants.
+
+********************************
+Date d'installation : 30/05/2022
+Version 1.2
+
+Evolution V1.2 :
+1. Diminution de la taille des images les plus lourdes
+2. Tentative de correction du bug lié aux rosiers.
+Lorsque les joueurs arrivent sur une page esprit on check :
+si l'esprit 02 n'a pas été trouvé (celui associé aux rosiers)
+et que le point Statue_ex_voto est a l'état terminé alors
+on active la mission des rosiers.
+
+********************************
+Date d'installation : 12/04/2022
+Version 	    : 1.1
+
+Evolution V1.1 :
+1. Corrections de texte
+2. Bug affichage de l'onglet 3 (Esprit) après la mission Apparition
+3. Ajout et reformulation d'indices
+4. Un indice spécial est affiché si les joueurs saisissent SORTILEGE à la place de GLORIETTES
+5. Bug disparition du POI des rosiers. Je pense que ça venait d'une autre image qui passait par dessus, je n'ai pas réalisé de correctif, il semble avoir disparu en règlant d'autres bug.
+6. Déplacement du POI du chien.
+7. Mise en surbrillance des notions de CLIQUEZ sur l'appli
+8. Indice supplémentaire au début pour que les joueurs sachent bien qu'ils essaient de communiquer avec la pierre et non l'oiseau ou les autres artifices qui se trouvent autour.
+9. Appuie sur le nombre d'édifices métalliques : 4 ! Pour que les joueurs pensent à chercher dans les 4.
+10. Validation du POI Gloriettes si les joueurs ne saisissent pas le S
+11. Indice supplémentaire au Lavoir pour éviter que les joueurs ne cherchent à communiquer avec de l'eau.
+12. Indice supplémentaire au chien pour dévier les joueurs qui seraient sur la souche.
+13. indice supplémentaire pour le POI Reine pour bien positionner les joueurs dans la gloriette.
+14. Modification de certaines questions finales trop faciles et pas drôle.
+15. Modification de l'affichage de la page finale
+16. Blocage du temps final dans un nouveau cookie
+17. Bug si on quittait la page finale il était impossible d'y revenir.
+18. Lorsque l'on valide une mission Vibrophone ou Reine et Roi je déplace les joueurs sur le bouton next qui s'affiche.
+
+********************************
+Date d'installation : 06/04/2022
+Version 	    : 1.0

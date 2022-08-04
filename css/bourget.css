@@ -1,0 +1,720 @@
+
+@font-face {
+	font-family: "MyRegular";
+	src: url('../police/child.ttf');
+	
+}
+
+@font-face {
+	font-family: 'digital';
+	font-style: normal;
+	font-weight: bold;
+	src: local('DS-DIGI'), url('../police/DS-DIGIB.ttf') format("truetype");
+}
+
+@font-face {
+	font-family: "handwriting";
+	font-style: normal;
+	font-weight: normal;
+	src: local('Handwritingfont.ttf'), url('../police/Handwritingfont.ttf') format("truetype");
+}
+
+body {
+	font-size: 2.3vmax;
+	color: #FFFFFF;
+	background-color: #000000;
+	background-repeat: no-repeat;
+	background-position: center;
+}
+
+b {
+	font-size: 3vmax;
+}
+
+h2 {
+	color: #EBB121;
+}
+
+.marge0{
+	margin-left:0;
+	margin-right: 0;
+}
+
+.marge4{
+	margin-left:2%;
+	margin-right: 2%;
+}
+.marge50neg{
+	margin-bottom: -50px;
+}
+.w100{
+	width: 100%;
+}
+.h100{
+	height: 100%;
+	max-height: 100%;
+}
+
+.bourget-warning{
+	background-color: rgba(240, 173, 78, 0.3);
+}
+
+
+/* LOADER AJAX */
+
+#loading{
+	display: block;
+	position: fixed;
+	top: 0;
+	left: 0;
+	background-color: transparent;
+	height: 100%;
+	width: 100%;
+	z-index: 50000;
+}
+
+.loader{
+	display: block;
+	position: relative;
+	max-width: 50%;
+	max-height: 50%;
+	margin: auto;
+	top: 20%;
+}
+
+
+/* FLEXBOX */
+
+.colflex{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	justify-content: space-evenly;
+	align-items: center;
+	width: 100%;
+}
+
+.rowflex{
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	justify-content: space-evenly;
+	align-items: center;
+	width: 100%;
+}
+
+.wrap{
+	flex-wrap: wrap;
+}
+
+.nowrap{
+	flex-wrap: nowrap;
+}
+
+/* AFFICHAGE MISSION */
+.visuel_mission{
+	float: left;
+	max-width: 50%;
+}
+
+.text-mission{
+	text-align: justify;
+}
+
+.text-mission-center{
+	text-align: center;
+}
+
+.text-esprit{
+	text-align: justify;
+	font-style: italic;
+}
+
+.text-couleur{
+	text-align: justify;
+	color:#EBB121;
+}
+
+.text-couleur-gros{
+	text-align: center;
+	color:#EBB121;
+	font-size:300%;
+}
+
+.text-couleur-center{
+	text-align: center;
+	color:#EBB121;
+	font-size:200%;
+}
+
+/* BANDE D'INFORMATION POUR LES VALIDATIONS DE MISSION */
+#resultat {
+	/* position: absolute; */
+	/* bottom: 20%; */
+	display: none;
+	text-align: center;
+	width:100%;
+	color: white;
+	font-size: 3vmax;
+	margin-bottom: 10px;
+}
+
+.bouton_head {	
+	background-image: url("./images/button.png");
+	width:100%;	
+}
+
+/* MENU */
+.button {
+    display: inline-block;
+    text-align: center;
+    vertical-align: middle;
+    padding: 15px 10px 15px 10px;
+    border-radius: 8px;
+    background: #FFDEAE;
+    background: -webkit-gradient(linear, left top, left bottom, from(#FFDEAE), to(#AF7700));
+    background: -moz-linear-gradient(top, #FFDEAE, #AF7700);
+    background: linear-gradient(to bottom, #FFDEAE, #AF7700);
+    -webkit-box-shadow: #FFCD59 0px 0px 40px 0px;
+    -moz-box-shadow: #FFCD59 0px 0px 40px 0px;
+    box-shadow: #FFCD59 0px 0px 40px 0px;
+    text-shadow: #5A4717 1px 1px 1px;
+    font: normal normal bold 20px arial;
+    color: #ffffff;
+    text-decoration: none;
+    width:100%;
+}
+.button:hover,
+.button:focus {
+    
+    background: #FFDEAE;
+    background: -webkit-gradient(linear, left top, left bottom, from(#FFDEAE), to(#AF7700));
+    background: -moz-linear-gradient(top, #FFDEAE, #AF7700);
+    background: linear-gradient(to bottom, #FFDEAE, #AF7700);
+    color: #ffffff;
+    text-decoration: none;
+}
+.button:active {
+    background: #FFDEAE;
+    background: -webkit-gradient(linear, left top, left bottom, from(#FFDEAE), to(#AF7700));
+    background: -moz-linear-gradient(top, #FFDEAE, #AF7700);
+    background: linear-gradient(to bottom, #FFDEAE, #AF7700);
+}
+
+.fontbutton{
+	font-size: 4vmin;
+}
+
+.menu{
+	padding: 10px 5px 15px 5px;
+	margin: 0;
+}
+
+/* BOUTON CORPS */
+.bouton-corps {
+    text-align: center;
+    vertical-align: middle;
+    /* padding: 15px 10px 15px 10px;     */
+    border-radius: 8px;
+    background: #FFDEAE;
+    background: -webkit-gradient(linear, left top, left bottom, from(#FFDEAE), to(#AF7700));
+    background: -moz-linear-gradient(top, #FFDEAE, #AF7700);
+    background: linear-gradient(to bottom, #FFDEAE, #AF7700);
+    -webkit-box-shadow: #FFCD59 0px 0px 40px 0px;
+    -moz-box-shadow: #FFCD59 0px 0px 40px 0px;
+    box-shadow: #FFCD59 0px 0px 40px 0px;
+    text-shadow: #171d5a 1px 1px 1px;
+    /* font: normal normal bold 4vmax arial; */
+	font-size: 3vmax;
+    color: #ffffff;
+    text-decoration: none;
+	/* width:100%; */
+}
+.bouton-corps:hover,
+.bouton-corps:focus {
+    background: #FFDEAE;
+    background: -webkit-gradient(linear, left top, left bottom, from(#FFDEAE), to(#AF7700));
+    background: -moz-linear-gradient(top, #FFDEAE, #AF7700);
+    background: linear-gradient(to bottom, #FFDEAE, #AF7700);
+    color: #ffffff;
+    text-decoration: none;
+}
+.bouton-corps:active {
+    background: #FFDEAE;
+    background: -webkit-gradient(linear, left top, left bottom, from(#FFDEAE), to(#AF7700));
+    background: -moz-linear-gradient(top, #FFDEAE, #AF7700);
+    background: linear-gradient(to bottom, #FFDEAE, #AF7700);
+}
+.font-inherit{
+	font-size: inherit;
+}
+
+
+/* CARTE DU JEU */
+
+.map{
+	width: 100%;
+}
+
+.carte-active{
+	color: white;
+	text-align: center;
+    vertical-align: middle;
+    /* padding: 15px 10px 15px 10px;     */
+    border-radius: 8px;
+    background: #FFDEAE;
+    background: -webkit-gradient(linear, left top, left bottom, from(#FFDEAE), to(#AF7700));
+    background: -moz-linear-gradient(top, #FFDEAE, #AF7700);
+    background: linear-gradient(to bottom, #FFDEAE, #AF7700);
+    -webkit-box-shadow: #FFCD59 0px 0px 40px 0px;
+    -moz-box-shadow: #FFCD59 0px 0px 40px 0px;
+    box-shadow: #FFCD59 0px 0px 40px 0px;
+    text-shadow: #171d5a 1px 1px 1px;
+    /* font: normal normal bold 4vmax arial; */
+    color: #ffffff;
+    text-decoration: none;
+	padding-bottom: 5px;
+}
+
+.changemap{
+	color: white;
+	text-align: center;
+    vertical-align: middle;
+    /* padding: 15px 10px 15px 10px;     */
+    border-radius: 8px;
+    background: #FFDEAE;
+    background: -webkit-gradient(linear, left top, left bottom, from(#FFDEAE), to(#AF7700));
+    background: -moz-linear-gradient(top, #FFDEAE, #AF7700);
+    background: linear-gradient(to bottom, #FFDEAE, #AF7700);
+    -webkit-box-shadow: #FFCD59 0px 0px 40px 0px;
+    -moz-box-shadow: #FFCD59 0px 0px 40px 0px;
+    box-shadow: #FFCD59 0px 0px 40px 0px;
+    text-shadow: #171d5a 1px 1px 1px;
+    /* font: normal normal bold 4vmax arial; */
+    color: #ffffff;
+    text-decoration: none;
+	padding-bottom: 5px;
+}
+
+.cercle{
+	border-radius:100%;
+	width:15px;
+	height:15px;
+	text-align:center;
+	position: absolute;
+	opacity: 0.7;
+}
+
+.carre{
+	border-radius:0%;	
+	position: absolute;
+	opacity: 0.7;
+}
+
+.arbres_royaux{
+	position: absolute;
+	opacity: 0;
+}
+
+.vibro_cercle{
+	border-radius:100%;
+	text-align:center;
+	position: absolute;
+	opacity: 0;
+}
+
+.vibro_potar{
+	border-radius:100%;	
+	text-align:center;
+	position: absolute;
+	opacity: 0;
+}
+
+.vibro_carre{
+	border-radius:0%;	
+	text-align:center;
+	position: absolute;
+	opacity: 0;
+}
+
+.geant{
+	width: 50px;
+	height: 50px;
+}
+
+/* Rond des missions sur la carte */
+/* Idem border img */
+.point_actif{ 
+	background:#EBB121;
+}
+
+.point_bleu{
+	opacity: 30%;	
+	background: #05B3DA;
+}
+
+.point_opacity_30{
+	opacity: 30%;
+}
+
+.point_fini{	
+	opacity: 50%;
+	background-color: #DA3A05 ;
+}
+.point_focus{
+	background-color: #EBB121;
+}
+
+/* CORPS - SAISI DES REPONSES */
+.answer{
+	width: 100%;
+}
+
+.solve-div{
+	display: flex;
+	justify-content: center;
+}
+
+.displayclue{
+	display: none;
+	background-color: rgba(255, 255, 255, 0.25);
+	font-size: 3vmax;
+}
+
+.link{
+	padding-right: 5px;
+	display: inline-block;
+	border-radius: 8px;
+	/* width: 20%; */
+	text-align: center;
+	vertical-align: middle;
+	float: right;
+}
+
+.hide{
+	display: none;
+}
+
+.direction{
+	height: 60px;
+	width: 100%;
+}
+
+.poche_chien{
+	float: right;
+	max-width: 49%;
+}
+
+/* Chien et distrib : choix du dentier */
+.choixdentier{
+	/* width: 10%; */
+	/* height: 10%; */
+	max-height: 100%;
+	max-width: 100%;
+}
+.choixdentier:hover{
+	background-color: #24b6ff;
+}
+.choixdentier:active{
+	background-color: #0043f5;
+}
+
+
+
+/* sonnette paresseux */
+.sonnette{
+	/*border-radius:100%;*/
+	top: 54%;
+	left: 35%;
+	width:16%;
+	height:8%;
+	text-align:center;
+	position: absolute;
+	background-color:rgba(0, 0, 255, 0);
+	/* background-color: green; */
+	/* opacity: 0.4; */
+}
+
+.discussion{
+	display: block;
+	/* opacity: 0.4; */
+	/* background-color: red; */
+	position: absolute;
+	top: 65%;
+	left: 5%;
+	width: 86%;
+	height: 35%;
+	margin: 0px 2.5% 0px 2.5%;
+}
+
+
+
+/* DRAPEAUx DIRECTION POUR LE St BERNARD */
+.text_direction{
+	font-size: 4vmax;
+	min-height: 30px;
+}
+
+/* COULEUR POUR STIC */
+.couleur{
+	border-radius: 50%;
+	height: 40px;
+	width: 40px;
+}
+
+.couleur-0{
+	background-color:red;
+}
+.couleur-1{
+	background-color: green;
+}
+.couleur-2{
+	background-color: blue;
+}
+.couleur-3{
+	background-color: yellow;
+}
+.couleur-4{
+	background-color: #F55900;
+}
+.couleur-5{
+	background-color: purple;
+}
+.spancouleur{
+	border-radius: 50%;
+	height: 40px;
+	width: 40px;
+	display: inline-block;
+}
+.text_couleur{
+	min-height: 45px;
+}
+
+.txt_centre {
+	text-align:center;
+}
+
+/* MORSE */
+.morse{
+	background-color: white;
+}
+
+.point{
+	border-radius: 50%;
+	width: 50px;
+	height: 50px;
+}
+
+.tiret{
+	border-radius: 30%;
+	height: 30px;
+	width: 70px;
+}
+
+#traduction{
+	font-size: 3vmax;
+}
+#code_visuel{
+	font-size: 3vmax;
+}
+
+
+/** DIGICODE */
+
+.digicode {
+	border: solid 1px  #566573;
+	background-color: grey;
+	/* background: linear-gradient(to top right, #757575 16%, #c6c4c4 83%); */
+	background: linear-gradient(to bottom right, #747474 0%, #313131 70%);
+	margin: auto;
+	margin-top: 15px;
+	width: 250px;
+}
+
+.bouton_digicode{
+	/* background: linear-gradient(to top right, #757575 27%, #c6c4c4 56%); */
+	background: linear-gradient(to bottom left, #747474 0%, #313131 70%);
+	width:50px;
+	height: 50px;
+	color:#FFF;
+	display:block;
+	text-decoration:none;
+	margin: 10px 0px 3px 10px;
+	border-radius:50%;
+	border:solid 1px #bdcce3;
+	text-align:center;
+	/* padding:20px 30px; */
+	-webkit-transition: all 0.1s;
+	-moz-transition: all 0.1s;
+	transition: all 0.1s;
+	-webkit-box-shadow: 0px 5px 0px #000000; /* #404040*/
+	-moz-box-shadow: 0px 5px 0px #000000;
+	box-shadow: 0px 5px 0px #000000;
+	font-size: 30px;
+	text-shadow:0 0 3px #53efed, 0 0 7px #53efed, 0 0 20px #53efed;
+	color:#53efed; /* bleu plus flashy 53efed //// Bleu d'origine : 408bff */
+}
+
+.bouton_digicode:active{
+	border:solid 1px #FFD100;
+    -webkit-box-shadow: 0px 2px 0px #000000;
+    -moz-box-shadow: 0px 2px 0px #000000;
+    box-shadow: 0px 2px 0px #000000;
+    position:relative;
+    top:7px;
+	text-shadow:0 0 2px #FFD100,0 0 30px #FFD100,0px 0px 5px #FFFFFF, 0 0 150px #FFFFFF;
+	color:#FFFFFF;
+}
+
+.ecran{
+	display: block;
+	width: 100%;
+	height: 40px;
+	text-align: center;
+	font-family: digital;
+	font-size: 18pt;
+	border: none;
+	background: #222;
+	color: #fff;
+	text-shadow: 2px 0 rgba(255, 0, 0, 0.9), -2px 0 rgba(0, 0, 255, 0.9);
+}
+
+.effet_ecran {
+	position: relative;
+	top: -80px;
+	left: 16px;
+	height: 75px;
+	width: 215px;
+	/* position: absolute; */
+	/* top: 95px; */
+	/* left: 23px; */
+	/* right: 23px; */
+	/* height: 75px; */
+	background-image: linear-gradient(to top, rgba(255, 255, 255, 0.2) 33.33333%, rgba(255, 255, 255, 0.4) 33.33333%, rgba(255, 255, 255, 0.4) 66.66666%, rgba(255, 255, 255, 0.6) 66.66666%), linear-gradient(to right, rgba(255, 0, 0, 0.7) 33.33333%, rgba(0, 255, 0, 0.7) 33.33333%, rgba(0, 255, 0, 0.7) 66.66666%, rgba(0, 0, 255, 0.7) 66.66666%);
+	background-size: 3px 3px;
+	mix-blend-mode: multiply;
+	/* display: block; */
+}
+
+.marge_digit{
+	margin: 0% 15% 0% 15%;
+}
+
+.pave_bouton{
+	position: relative;
+	left: -5px;
+	top: -70px;
+	margin-bottom: -55px;
+}
+
+
+/* HORLOGE POISSON */
+.saisie_horaire{
+	z-index: 1000;
+	position: relative;
+	width: 50px;
+}
+
+.aiguille{
+	z-index: 100;
+	position: absolute;
+	top: 0px;
+	left: 0px;
+}
+
+.horloge{
+	border-radius: 50%;
+	background-color: white;
+	/* display: block; */
+	/* width: 102px; */
+	/* margin: auto; */
+	position: absolute;
+	top: 0px;
+	left: 0px;
+}
+
+.conteneur_horloge{
+	position: relative;
+	width: 102px;
+	height: 102px;
+	margin: 0 auto;
+}
+
+.img_poisson{
+	max-width: 100%;
+	height: 30%;
+}
+
+.readonly{
+	background-color: grey;
+	border: none;
+}
+
+
+/* LETTRE DES KIDNAPPEURS */
+
+.lettre{
+	position: relative;
+	background-image: url("../images/paper-test.jpg");
+	background-repeat: repeat;
+	margin: 5px 5% 10px 5%;
+	color: black;
+	padding: 10px 2% 60px 2%;
+	font-family: handwriting;
+	font-size: 5vmax;
+	line-height: 0.9;
+}
+
+.lettre-titre{
+	font-weight: bold;
+	position: relative;
+	z-index: 20;
+}
+
+.lettre-corps{
+	margin-left: 15px;
+	position: relative;
+	z-index: 20;
+}
+
+.lettre-image{
+	width: 80px;
+	/* position: absolute; */
+	/* bottom: 15px; */
+	/* z-index: 15; */
+}
+
+.lettre-ours{
+	/* left: 15%; */
+	margin-right: 4%;
+}
+.lettre-poisson{
+	right: 30%;
+}
+.lettre-empreinte{
+	position: absolute;
+	bottom: 15px;
+	z-index: 15;
+	left: 15%;
+	width: 85%;
+}
+
+
+/* PAGE HISTOIRE / RESUME */
+.resume-content{
+	margin-top:10px;
+	margin-bottom: 10px;
+}
+
+.resume-img{
+	max-width: 27%;
+	margin: 0 3% 0 3%;
+}
+
+.resume-img-xl{
+	max-width: 95%;
+}
+
+.select_rep{ 
+	opacity: 0;
+}
