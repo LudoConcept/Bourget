@@ -4,7 +4,8 @@ $temps_stock = read_cookie_fin_de_game();
 if ($temps_stock == "InGame") 
 {
 	$temps_depart = read_cookie_timer();
-	$temps_en_sec = time() - $temps_depart;							
+	$temps_fin = time();
+	$temps_en_sec = $temps_fin - $temps_depart;							
 	maj_cookie_fin_de_game($temps_en_sec);
 } else {
 	$temps_en_sec = $temps_stock;
@@ -81,6 +82,7 @@ $save_temps_en_sec = $temps_en_sec;
 		echo "<br>Réponses correctes : ".$nb_juste.". Ce qui nous donne -".$temps_juste." secondes.";
 		echo "<br>Réponses fausses : ".$nb_fausse.". Ce qui nous donne +".$temps_fausse." secondes.";
 		$temps_en_sec = $save_temps_en_sec + $temps_juste + $temps_fausse;
+		$duree = $temps_en_sec;
 		$Jour = 0;
 		$Heure = 0;
 		$Minute = 0;
@@ -114,3 +116,9 @@ $save_temps_en_sec = $temps_en_sec;
 		?>
 	</div>
 </div>
+<form>
+	<input type="hidden" name="start" value="<?php echo $temps_depart; ?>">
+	<input type="hidden" name="end" value="<?php echo $temps_fin; ?>">
+	<input type="hidden" name="duree" value="<?php echo $duree; ?>">
+	<input type="hidden" name="rep_juste" value="<?php echo $nb_juste; ?>">
+</form>
