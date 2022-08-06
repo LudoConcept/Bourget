@@ -1,14 +1,16 @@
 <?php
 //Le jeu est terminé !
 $temps_stock = read_cookie_fin_de_game();
+$temps_depart = read_cookie_timer();
 if ($temps_stock == "InGame") 
 {
-	$temps_depart = read_cookie_timer();
 	$temps_fin = time();
+	createCookie("bourget_end", $temps_fin);
 	$temps_en_sec = $temps_fin - $temps_depart;							
 	maj_cookie_fin_de_game($temps_en_sec);
 } else {
 	$temps_en_sec = $temps_stock;
+	$temps_fin = $_COOKIE["bourget_end"];
 }
 $save_temps_en_sec = $temps_en_sec;
 ?>
@@ -117,6 +119,8 @@ $save_temps_en_sec = $temps_en_sec;
 	</div>
 </div>
 <form>
+	<!-- <?php echo $temps_depart; ?> <?php echo $temps_fin; ?> <?php echo $duree; ?> <?php echo $nb_juste; ?> -->
+	<!-- data à sauver pour les teams + manque nom de la team -->
 	<input type="hidden" name="start" value="<?php echo $temps_depart; ?>">
 	<input type="hidden" name="end" value="<?php echo $temps_fin; ?>">
 	<input type="hidden" name="duree" value="<?php echo $duree; ?>">
