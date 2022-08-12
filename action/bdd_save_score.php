@@ -21,16 +21,7 @@ try{
 	$data = [];
 	$data["erreur"] = false;
 	
-	
-	/********* JUST GET THIS SPECIFIC CODE OUT OF HERE ****************/
-	$servername = "localhost";
-	$username = "bourget";
-	$password = "test";
-	$dbname = "bourget";
-	
-	$sql = "";
-	$conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
-	$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+	include_once($p.'action/bdd_connect.php');
 	
 	if (cookieExists(COOKIE_MISSIONS)) {
 		if (isset($_POST['team'])) {
