@@ -24,6 +24,8 @@ try{
 	// check des conditions + prépa des valeurs de retour
 	$data = [];
 	$data["erreur"] = false;
+	$data['msg'] = "";
+	$data["save"] = false;
 	
 	if (!cookieExists(COOKIE_MISSIONS)) {
 		$data['erreur'] = true;
