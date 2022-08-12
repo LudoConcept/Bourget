@@ -41,7 +41,6 @@ try{
 		$sql = "INSERT INTO `game` (`nom`, `start`, `end`, `reponsejuste`, `duree`) VALUES (:nom, :start, :end, :rep, :duree)";
 		$statement = $conn->prepare($sql);
 		$statement->execute($array);
-		
 	}
 	
 }
