@@ -37,8 +37,11 @@ try{
 	if (!data['erreur']) {
 		// formulaire envoyé : insérer la team dans la bdd !
 		// INSERT INTO `utilisateur` (`nom`, `prenom`, `email`) VALUES ('Durantay', 'Quentin', 'quentin@gmail.com');
-		$array = ["nom" => $_POST['team'], "start" => $_POST['start'], "end" => $_POST['end'], "rep" => $_POST['rep_juste'], "duree" => $_POST['duree']];
+		$array = ["nom" => $_POST['team'], "start" => intval($_POST['start']), "end" => intval($_POST['end']), "rep" => intval($_POST['rep_juste']), "duree" => intval($_POST['duree'])];
 		$sql = "INSERT INTO `game` (`nom`, `start`, `end`, `reponsejuste`, `duree`) VALUES (:nom, :start, :end, :rep, :duree)";
+		$statement = $conn->prepare($sql);
+		$statement->execute($array);
+		
 	}
 	
 }
