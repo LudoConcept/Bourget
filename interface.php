@@ -1141,6 +1141,7 @@ include ('./includes/include_external_script.php');
 		
 		
 	</script>
+	<script src="./js/endgame.js"></script>
 <?php
 include ('./includes/include_endhtml.php');
 ?>
