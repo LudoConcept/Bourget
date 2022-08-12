@@ -35,12 +35,10 @@ try{
 	}
 	
 	if (!data['erreur']) {
-		if (isset($_POST['team'])) {
-			// formulaire envoyé : insérer la team dans la bdd !
-			// INSERT INTO `utilisateur` (`nom`, `prenom`, `email`) VALUES ('Durantay', 'Quentin', 'quentin@gmail.com');
-			$array = ["nom" => $_POST['team'], "start" => $_POST['start'], "end" => $_POST['end'], "rep" => $_POST['rep_juste'], "duree" => $_POST['duree']];
-			$sql = "INSERT INTO `game` (`nom`, `start`, `end`, `reponsejuste`, `duree`) VALUES (:nom, :start, :end, :rep, :duree)";
-		}
+		// formulaire envoyé : insérer la team dans la bdd !
+		// INSERT INTO `utilisateur` (`nom`, `prenom`, `email`) VALUES ('Durantay', 'Quentin', 'quentin@gmail.com');
+		$array = ["nom" => $_POST['team'], "start" => $_POST['start'], "end" => $_POST['end'], "rep" => $_POST['rep_juste'], "duree" => $_POST['duree']];
+		$sql = "INSERT INTO `game` (`nom`, `start`, `end`, `reponsejuste`, `duree`) VALUES (:nom, :start, :end, :rep, :duree)";
 	}
 	
 }
