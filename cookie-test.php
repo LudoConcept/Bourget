@@ -11,7 +11,7 @@ createCookie("bourget_poi_arbres", 333333333333333);
 createCookie("bourget_poi_map", 233442);
 createCookie("bourget_question", "start");
 createCookie("bourget_temps_final", "InGame");
-createCookie("bourget_timer", <?php echo time()-1672);
+createCookie("bourget_timer", <?php echo time()-1672; ?>);
 createCookie("bourget_vibrophone", 13242);
 </script>
 </body>
