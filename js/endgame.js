@@ -16,7 +16,11 @@ $(function(){
 			"json"
 		).fail(function(erreur){
 			console.log("fail");
-			$("#responseform").addClass("bg-danger text-light").html(erreur.msg).show();
+			if (erreur.msg != null) {
+				$("#responseform").html(erreur.msg).show("fast", "swing").parent().parent().addClass("bg-danger text-light");
+			} else {
+				$("#responseform").html(erreur.responseText).show("fast", "swing").parent().parent().addClass("bg-danger text-light");
+			}
 		}).always(function(res){
 			console.log("always");
 			console.log(res);
