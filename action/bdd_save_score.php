@@ -21,52 +21,56 @@ try{
 
 	include_once($p.'action/bdd_connect.php');
 	
+	define("MSG", 'msg');
+	define("DATAERR", 'erreur');
+	define("DATASAVE", 'save');
+	
 	// check des conditions + prépa des valeurs de retour
 	$data = Array();
-	$data["erreur"] = false;
-	$data['msg'] = "";
-	$data["save"] = false;
+	$data[DATAERR] = false;
+	$data[MSG] = "";
+	$data[DATASAVE] = false;
 	
 	if (!cookieExists(COOKIE_MISSIONS)) {
-		$data['erreur'] = true;
+		$data[DATAERR] = true;
 		throw new Exception("Erreur, aucune donnée dans les cookies. Je crains que vous ne deviez <a href=\"./\">recommencer le jeu...</a>");
 	}
 	if (!isset($_POST['team']) && !isset($_POST['start']) && !isset($_POST['end']) && !isset($_POST['duree']) && !isset($_POST['rep_juste']) && is_numeric($_POST['start']) && is_numeric($_POST['end']) && is_numeric($_POST['duree']) && is_numeric($_POST['rep_juste'])) {
-		$data['erreur'] = true;
+		$data[DATAERR] = true;
 		throw new Exception("Erreur, aucune donnée envoyées via le formulaire. ");
 	}
 	
-	if (!$data['erreur']) {
+	if (!$data[DATAERR]) {
 		// formulaire envoyé : insérer la team dans la bdd !
 		// INSERT INTO `utilisateur` (`nom`, `prenom`, `email`) VALUES ('Durantay', 'Quentin', 'quentin@gmail.com');
 		$array = ["nom" => $_POST['team'], "start" => intval($_POST['start']), "end" => intval($_POST['end']), "rep" => intval($_POST['rep_juste']), "duree" => intval($_POST['duree'])];
 		$sql = "INSERT INTO `game` (`nom`, `start`, `end`, `reponsejuste`, `duree`) VALUES (:nom, :start, :end, :rep, :duree)";
 		$statement = $conn->prepare($sql);
 		$statement->execute($array);
-		$data["save"] = true;
-		$data["msg"] = "RECORD";
+		$data[DATASAVE] = true;
+		$data[MSG] = "RECORD";
 	}
 	
 }
 catch(PDOException $e){
 	if (isset($statement) && $statement->errorInfo()[1] == 1062){
-		$data["erreur"] = false;
-		$data["save"] = false;
-		$data["msg"] = "<p>Une autre &eacute;quipe a choisi le m&ecirc;me nom. Trouvons-en un autre&nbsp;!</p>";
+		$data[DATAERR] = false;
+		$data[DATASAVE] = false;
+		$data[MSG] = "<p>Une autre &eacute;quipe a choisi le m&ecirc;me nom. Trouvons-en un autre&nbsp;!</p>";
 	}
 	else {
-		$data["erreur"] = true;
-		// $data["msg"] = "<p>Erreur aupr&eagrav;s de la base de donn&eacute;es.</p><p>Ligne ".$e->getLine()." : ".$e->getMessage()."</p><p>".implode(" ||| ",$statement->errorInfo())."</p>";
-		$data["msg"] = "<p>Erreur aupr&eagrav;s de la base de donn&eacute;es.</p><p>Intern error code ".$statement->errorInfo()[1]." ---- Line ".$e->getLine()." : </p><p>".$e->getMessage()."</p>";
+		$data[DATAERR] = true;
+		// $data[MSG] = "<p>Erreur aupr&eagrav;s de la base de donn&eacute;es.</p><p>Ligne ".$e->getLine()." : ".$e->getMessage()."</p><p>".implode(" ||| ",$statement->errorInfo())."</p>";
+		$data[MSG] = "<p>Erreur aupr&eagrav;s de la base de donn&eacute;es.</p><p>Intern error code ".$statement->errorInfo()[1]." ---- Line ".$e->getLine()." : </p><p>".$e->getMessage()."</p>";
 	}
 }
 catch(Exception $e){
-	$data["erreur"] = true;
-	$data["msg"] = "<p>Une exception est survenue. Merci de contacter un administrateur.</p><p>Ligne ".$e->getLine()." : ".$e->getMessage()."</p>";
+	$data[DATAERR] = true;
+	$data[MSG] = "<p>Une exception est survenue. Merci de contacter un administrateur.</p><p>Ligne ".$e->getLine()." : ".$e->getMessage()."</p>";
 }
 catch(Error $e){
-	$data["erreur"] = true;
-	$data["msg"] = "<p>Une erreur est survenue. Merci de contacter un administrateur.</p><p>Ligne ".$e->getLine()." : ".$e->getMessage()."</p>";
+	$data[DATAERR] = true;
+	$data[MSG] = "<p>Une erreur est survenue. Merci de contacter un administrateur.</p><p>Ligne ".$e->getLine()." : ".$e->getMessage()."</p>";
 }
 finally{
 	echo json_encode($data);
