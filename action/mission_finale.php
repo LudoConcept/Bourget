@@ -118,8 +118,10 @@ $save_temps_en_sec = $temps_en_sec;
 		?>
 	</div>
 </div>
-<div class="row marge0 mb-3">
-	<div class="col-12" id="responseform">
+<div class="row marge0">
+	<div class="col-12">
+		<div id="responseform" style="display: none;">
+		</div>
 	</div>
 </div>
 <form id="saveteamform">
