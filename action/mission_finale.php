@@ -127,7 +127,7 @@ $save_temps_en_sec = $temps_en_sec;
 <form id="saveteamform">
 	<!-- <?php echo $temps_depart; ?> <?php echo $temps_fin; ?> <?php echo $duree; ?> <?php echo $nb_juste; ?> -->
 	<!-- data à sauver pour les teams + manque nom de la team -->
-	<input type="text" name="team" value="" placeholder="Votre nom d'équipe"><input type="submit" value="Enregistrer votre temps !" id="saveteam">
+	<input type="text" name="team" value="" placeholder="Votre nom d'équipe" style="width: 80%;"><input type="submit" value="Enregistrer votre temps !" id="saveteam">
 	<input type="hidden" name="start" value="<?php echo $temps_depart; ?>">
 	<input type="hidden" name="end" value="<?php echo $temps_fin; ?>">
 	<input type="hidden" name="duree" value="<?php echo $duree; ?>">
