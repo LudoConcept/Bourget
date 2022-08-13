@@ -61,7 +61,7 @@ catch(PDOException $e){
 	else {
 		$data[DATAERR] = true;
 		// $data[MSG] = "<p>Erreur aupr&eagrav;s de la base de donn&eacute;es.</p><p>Ligne ".$e->getLine()." : ".$e->getMessage()."</p><p>".implode(" ||| ",$statement->errorInfo())."</p>";
-		$data[MSG] = "<p>Erreur aupr&eagrav;s de la base de donn&eacute;es.</p><p>Intern error code ".$statement->errorInfo()[1]." ---- Line ".$e->getLine()." : </p><p>".$e->getMessage()."</p>";
+		$data[MSG] = "<p>Erreur auprès de la base de donn&eacute;es.</p><p>Intern error code ".$statement->errorInfo()[1]." ---- Line ".$e->getLine()." : </p><p>".$e->getMessage()."</p>";
 	}
 }
 catch(Exception $e){
