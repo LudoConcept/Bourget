@@ -165,7 +165,7 @@ include ('./includes/include_external_script.php');
 					//Dans ce cas on save en cookie les valeurs du vibro.
 					var save_vibro = document.getElementById("vibro_valeurs").innerHTML;
 					//console.log (save_vibro);
-					createCookie(cookie_vibro, save_vibro);
+					createCookie(cookie_vibro, save_vibro, 7);
 				}
 
 				if (this.title == "onglet_1") {
@@ -189,7 +189,7 @@ include ('./includes/include_external_script.php');
 				//Si on vient de terminer une mission avec le vibro on sauvegarde ses éléments dans le cookie
 				if (document.getElementById("vibro_valeurs")) {
 					var save_vibro = document.getElementById("vibro_valeurs").innerHTML;					
-					createCookie(cookie_vibro, save_vibro);
+					createCookie(cookie_vibro, save_vibro, 7);
 				}
 				afficher_info_mission(event.target.title);
 			});
@@ -984,7 +984,7 @@ include ('./includes/include_external_script.php');
 				}						
 				valeurs = valeurs.substr(0,position) + valeurs_param + valeurs.substr(position+1);	
 				document.getElementById("poi_arbre_valeurs").innerHTML = valeurs;
-				createCookie(cookie_poi_arbre, valeurs);
+				createCookie(cookie_poi_arbre, valeurs, 7);
 				
 				/*console.log("valeurs après : " + valeurs);
 				console.log("position après : " + position);
@@ -1016,7 +1016,7 @@ include ('./includes/include_external_script.php');
 
 				valeurs = valeurs.substr(0,position) + valeurs_param + valeurs.substr(position+1);	
 				document.getElementById("poi_map_valeurs").innerHTML = valeurs;
-				createCookie(cookie_poi_map, valeurs);		
+				createCookie(cookie_poi_map, valeurs, 7);		
 			});
 
 /********************************************************************
@@ -1100,7 +1100,7 @@ include ('./includes/include_external_script.php');
 				save_rep += $(this).attr('id');
 				console.log("valeur save rep après + id :"+save_rep); 
 				document.getElementById("save_rep").innerHTML = save_rep;
-				createCookie(cookie_question, save_rep);
+				createCookie(cookie_question, save_rep, 7);
 
 				etape = document.getElementById("etape_rep").innerHTML;
 				//console.log("Etape lue :"+etape); 
