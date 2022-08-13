@@ -22,7 +22,7 @@ try{
 	include_once($p.'action/bdd_connect.php');
 	
 	// check des conditions + prépa des valeurs de retour
-	$data = [];
+	$data = Array();
 	$data["erreur"] = false;
 	$data['msg'] = "";
 	$data["save"] = false;
@@ -36,27 +36,37 @@ try{
 		throw new Exception("Erreur, aucune donnée envoyées via le formulaire. ");
 	}
 	
-	if (!data['erreur']) {
+	if (!$data['erreur']) {
 		// formulaire envoyé : insérer la team dans la bdd !
 		// INSERT INTO `utilisateur` (`nom`, `prenom`, `email`) VALUES ('Durantay', 'Quentin', 'quentin@gmail.com');
 		$array = ["nom" => $_POST['team'], "start" => intval($_POST['start']), "end" => intval($_POST['end']), "rep" => intval($_POST['rep_juste']), "duree" => intval($_POST['duree'])];
 		$sql = "INSERT INTO `game` (`nom`, `start`, `end`, `reponsejuste`, `duree`) VALUES (:nom, :start, :end, :rep, :duree)";
 		$statement = $conn->prepare($sql);
 		$statement->execute($array);
+		$data["save"] = true;
+		$data["msg"] = "RECORD";
 	}
 	
 }
 catch(PDOException $e){
-	$data["erreur"] = true;
-	$data["msg"] = "<p>Erreur auprès de la base de données.</p><p>Requête : $sql</p><p>".$e->getMessage()."</p>";
+	if (isset($statement) && $statement->errorInfo()[1] == 1062){
+		$data["erreur"] = false;
+		$data["save"] = false;
+		$data["msg"] = "<p>Une autre &eacute;quipe a choisi le m&ecirc;me nom. Trouvons-en un autre&nbsp;!</p>";
+	}
+	else {
+		$data["erreur"] = true;
+		// $data["msg"] = "<p>Erreur aupr&eagrav;s de la base de donn&eacute;es.</p><p>Ligne ".$e->getLine()." : ".$e->getMessage()."</p><p>".implode(" ||| ",$statement->errorInfo())."</p>";
+		$data["msg"] = "<p>Erreur aupr&eagrav;s de la base de donn&eacute;es.</p><p>Intern error code ".$statement->errorInfo()[1]." ---- Line ".$e->getLine()." : </p><p>".$e->getMessage()."</p>";
+	}
 }
 catch(Exception $e){
 	$data["erreur"] = true;
-	$data["msg"] = "<p>Une exception est survenue. Merci de contacter un administrateur.</p><p>".$e->getMessage()."</p>";
+	$data["msg"] = "<p>Une exception est survenue. Merci de contacter un administrateur.</p><p>Ligne ".$e->getLine()." : ".$e->getMessage()."</p>";
 }
 catch(Error $e){
 	$data["erreur"] = true;
-	$data["msg"] = "<p>Une erreur est survenue. Merci de contacter un administrateur.</p><p>".$e->getMessage()."</p>";
+	$data["msg"] = "<p>Une erreur est survenue. Merci de contacter un administrateur.</p><p>Ligne ".$e->getLine()." : ".$e->getMessage()."</p>";
 }
 finally{
 	echo json_encode($data);
