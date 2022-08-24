@@ -117,7 +117,8 @@ $save_temps_en_sec = $temps_en_sec;
 		echo "Il me reste à vous dire au revoir, puissiez vous garder en mémoire :<br><center>Tout peuple qui oublie son passé<br>se condamne à le revivre.</center>"
 		?>
 	</div>
-</div>
+</div><?php
+if (SAVESCORE) { ?>
 <div class="row marge0">
 	<div class="col-12">
 		<div id="responseform" style="display: none;">
@@ -132,4 +133,4 @@ $save_temps_en_sec = $temps_en_sec;
 	<input type="hidden" name="end" value="<?php echo $temps_fin; ?>">
 	<input type="hidden" name="duree" value="<?php echo $duree; ?>">
 	<input type="hidden" name="rep_juste" value="<?php echo $nb_juste; ?>">
-</form>
+</form><?php } ?>
