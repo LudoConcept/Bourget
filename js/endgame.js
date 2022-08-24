@@ -32,10 +32,11 @@ $(function(){
 			} else {
 				$("#responseform").html(res.msg).show("fast", "swing").parent().parent().addClass("bg-success text-light");
 				createCookie("teambourget", $("#team").val(), 7);
+				// mettre fin au jeu ? Faire qu'on plus sur la map en cas de rechargement
+				// ajouter un lien en début de jeu pour aller voir les scores
+				// diriger vers les scores
 			}
 		});
 		
-		// traiter la réponse : la team n'est pas ajouté dans la base ----> on reste et on affiche un petit mot
-		// traiter la réponse : team enregistrée ----> on chrge la suite, trois étapes pour afficher les scores.
 	});
 });
