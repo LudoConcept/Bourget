@@ -62,7 +62,7 @@ h2 {
 
 /* LOADER AJAX */
 
-#loading{
+#bloc_loading{
 	display: block;
 	position: fixed;
 	top: 0;
@@ -247,6 +247,11 @@ h2 {
 }
 .font-inherit{
 	font-size: inherit;
+}
+
+.score td{
+	width: 33%;
+	border: solid 2px;
 }
 
 
