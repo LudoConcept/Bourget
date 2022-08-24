@@ -24,13 +24,14 @@ $(function(){
 		}).always(function(res){
 			console.log("always");
 			console.log(res);
-			blou = res;
+			/* blou = res; */
 			if (!res.save){
 				$("#responseform").html(res.msg).show("fast", "swing").parent().parent().addClass("bg-warning text-light");
 			} else if (res.erreur) {
 				$("#responseform").html(res.msg).show("fast", "swing").parent().parent().addClass("bg-danger text-light");
 			} else {
 				$("#responseform").html(res.msg).show("fast", "swing").parent().parent().addClass("bg-success text-light");
+				createCookie("teambourget", $("#team").val(), 7);
 			}
 		});
 		
