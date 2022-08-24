@@ -35,6 +35,13 @@ include_once('./action/bdd_connect.php');
 	if (!$result) echo "Pas de résultat"; 
 	else { ?>
 	<table class="score">
+		<thead>
+			<tr class="text-center">
+				<th>Date</th>
+				<th>&Eacute;quipe</th>
+				<th>Temps</th>
+			</tr>
+		</thead>
 		<tbody>
 		<?php
 		foreach ($result as $val){ 
