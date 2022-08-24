@@ -10,14 +10,15 @@ include_once('./action/bdd_connect.php');
 		</div>
 	</div>  FIN DE LA ZONE DES MISSIONS -->
 	
-	<div><?php $t = time(); ?>
+	<?php /* <div><?php $t = time(); ?>
 		<p><?php echo $t; ?></p>
 		<p><?php echo date("m/d/Y", $t-3600*24); ?></p>
 		<p><?php echo strtotime(date("m/d/Y", $t)); ?></p>
 		<p><?php echo date("m/d/Y", strtotime(date("m/d/Y", $t))); ?></p>
 		<p><?php $timestamptoday = strtotime(date("m/d/Y")); echo $timestamptoday; ?></p>
 		<p><?php $timestamp30days = $timestamptoday - 2592000; echo $timestamp30days; ?></p>
-	</div>
+	</div> */
+	?>
 	
 	<div class="m-1">
 		<h4 class="text-center m-2">Classement des 30 derniers jours</h2>
@@ -43,9 +44,11 @@ include_once('./action/bdd_connect.php');
 		$secondes = 0;
 		if ($val["duree"] > 0) {
 			$jours = floor($val["duree"] / (60 * 60 * 24));
-			$heures = floor(($val["duree"] - ($jours * 60 * 60 * 24)) / (60 * 60));
-			$minutes = floor(($val["duree"] - (($jours * 60 * 60 * 24 + $heures * 60 * 60))) / 60);
-			$secondes = floor($val["duree"] - (($jours * 60 * 60 * 24 + $heures * 60 * 60 + $minutes * 60)));
+			$temp = ($jours * 60 * 60 * 24);
+			$heures = floor(($val["duree"] - $temp) / (60 * 60));
+			$temp += ($heures * 60 * 60);
+			$minutes = floor(($val["duree"] - $temp) / 60);
+			$secondes = floor($val["duree"] - (($temp + $minutes * 60)));
 		} ?>
 		<tr>
 			<td style="width: 25%;"><?php echo date("d/m/y", $val["end"]); ?></td>
