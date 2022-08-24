@@ -20,6 +20,7 @@ include_once('./action/bdd_connect.php');
 	</div>
 	
 	<div class="m-1">
+		<h4 class="text-center m-2">Classement des 30 derniers jours</h2>
 		<?php
 	// requete 30 derniers jours
 	$timestamp30days = strtotime(date("m/d/Y")) - 2592000;
@@ -47,9 +48,9 @@ include_once('./action/bdd_connect.php');
 			$secondes = floor($val["duree"] - (($jours * 60 * 60 * 24 + $heures * 60 * 60 + $minutes * 60)));
 		} ?>
 		<tr>
-			<td><?php echo date("d/m/y", $val["end"]); ?></td>
-			<td class="text-center"><?php echo $val["nom"]; ?></td>
-			<td><?php if ($jours > 0) echo $jours." jour(s) "; if ($heures > 0) echo $heures." heure(s) "; if ($minutes > 0) echo $minutes." minute(s) "; if ($secondes > 0) echo $secondes." seconde(s)"; ?></td>
+			<td style="width: 25%;"><?php echo date("d/m/y", $val["end"]); ?></td>
+			<td class="text-center" style="width: 30%;"><?php echo $val["nom"]; ?></td>
+			<td style="width: 45%;"><?php if ($jours > 0) echo $jours." jour(s) "; if ($heures > 0) echo $heures." heure(s) "; if ($minutes > 0) echo $minutes." minute(s) "; if ($secondes > 0) echo $secondes." seconde(s)"; ?></td>
 		</tr>
 <?php
 		} ?>
@@ -76,7 +77,7 @@ include ('./includes/include_external_script.php');
 	<script>
 		$(function(){
 			$("#bloc_loading").hide();
-			$("#menuprincipal").remove();
+			$("#menuprincipal").remove(); // on retire le menu
 			$(document)
 				.ajaxStart(function(){
 					// console.log("ON");
