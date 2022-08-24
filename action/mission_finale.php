@@ -118,6 +118,7 @@ $save_temps_en_sec = $temps_en_sec;
 		?>
 	</div>
 </div><?php
+// AJOUTER UN AUTRE CHECK SI L'EQUIPE A DEJA ENREGISTRE SON TEMPS, POUR NE PAS REMETTRE LE FORMULAIRE
 if (SAVESCORE) { ?>
 <div class="row marge0">
 	<div class="col-12">
