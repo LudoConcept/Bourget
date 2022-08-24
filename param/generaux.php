@@ -1,4 +1,8 @@
 <?php
+
+// DOIT-ON SAUVEGARDER LES TEMPS A LA FIN DE LA GAME ???
+define("SAVESCORE", true);
+
 //Paramètres de ce jeu spécifiquement
 define("COOKIE_VIBROPHONE", "bourget_vibrophone");
 define("COOKIE_POI_MAP", "bourget_poi_map");
