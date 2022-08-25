@@ -31,7 +31,8 @@ $(function(){
 				$("#responseform").html(res.msg).show("fast", "swing").parent().parent().addClass("bg-danger text-light");
 			} else {
 				$("#responseform").html(res.msg).show("fast", "swing").parent().parent().addClass("bg-success text-light");
-				createCookie("teambourget", $("#team").val(), 7);
+				createCookie(cookieteam, $("#team").val(), 7);
+				setTimeout(()=>{ $("#bloc_loading").show(); document.location = "./classement.php"; }, 2000);
 				// mettre fin au jeu ? Faire qu'on plus sur la map en cas de rechargement
 				// ajouter un lien en début de jeu pour aller voir les scores
 				// diriger vers les scores
