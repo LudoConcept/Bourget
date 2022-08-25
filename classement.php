@@ -61,7 +61,7 @@ include_once('./action/bdd_connect.php');
 		<tr>
 			<td style="width: 25%;"><?php echo date("d/m/y", $val["end"]); ?></td>
 			<td class="text-center" style="width: 30%; word-wrap: anywhere;"><?php if (isset($team) && $team == $val['nom']) echo "<a id=\"team\"></a>"; echo $val["nom"]; ?></td>
-			<td style="width: 45%;"><?php if ($jours > 0) echo $jours." jour(s) "; if ($heures > 0) echo $heures." heure(s) "; if ($minutes > 0) echo $minutes." minute(s) "; if ($secondes > 0) echo $secondes." seconde(s)"; ?></td>
+			<td style="width: 45%;"><?php if ($jours > 0) echo $jours." jour(s) "; if ($heures > 0) echo $heures."h "; if ($minutes > 0) echo $minutes." min "; echo $secondes." sec"; ?></td>
 		</tr>
 <?php
 		} ?>
