@@ -12,6 +12,7 @@ define("COOKIE_ESPRIT", "bourget_esprit");
 define("COOKIE_TIMER","bourget_timer");
 define("COOKIE_QUESTION","bourget_question");
 define("COOKIE_FINAL","bourget_temps_final");
+define("COOKIE_TEAM", "bourget_team");
 //define("COOKIE_ROSES","bourget_roses");
 
 define("NBR_MISSIONS", 35); //Numéro dernière mission dans le tableau des missions
