@@ -119,7 +119,7 @@ $save_temps_en_sec = $temps_en_sec;
 	</div>
 </div><?php
 // AJOUTER UN AUTRE CHECK SI L'EQUIPE A DEJA ENREGISTRE SON TEMPS, POUR NE PAS REMETTRE LE FORMULAIRE
-if (SAVESCORE) { ?>
+if (SAVESCORE && !cookieExists(COOKIE_TEAM)) { ?>
 <div class="row marge0">
 	<div class="col-12">
 		<div id="responseform" style="display: none;">
@@ -134,4 +134,13 @@ if (SAVESCORE) { ?>
 	<input type="hidden" name="end" value="<?php echo $temps_fin; ?>">
 	<input type="hidden" name="duree" value="<?php echo $duree; ?>">
 	<input type="hidden" name="rep_juste" value="<?php echo $nb_juste; ?>">
-</form><?php } ?>
+</form><?php }
+elseif (SAVESCORE && cookieExists(COOKIE_TEAM)){ ?>
+<div class="row marge0">
+	<div class="col-12">
+		<p style="word-wrap: anywhere;">Equipe <?php echo $_COOKIE[COOKIE_TEAM]; ?>&nbsp;!</p>
+		<p><a href="./classement.php#team">Vous pouvez accéder au classement !</a></p>
+	</div>
+</div>
+<?php
+}	?>
