@@ -29,6 +29,7 @@ include_once('./action/bdd_connect.php');
 	// requete 50 meilleurs
 	// "SELECT * FROM `game` ORDER BY duree ASC LIMIT 0, 50"
 	// CHECK SI J'AI PAS FAIT UN TRUC SIMILAIRE POUR KHONSOU  (affichage de X resultats, page par page)
+	if (cookieExists(COOKIE_TEAM)) $team = $_COOKIE[COOKIE_TEAM];
 	$statement = $conn->prepare($sql);
 	$statement->execute([$timestamp30days]);
 	$result = $statement->fetchAll();
@@ -59,7 +60,7 @@ include_once('./action/bdd_connect.php');
 		} ?>
 		<tr>
 			<td style="width: 25%;"><?php echo date("d/m/y", $val["end"]); ?></td>
-			<td class="text-center" style="width: 30%;"><?php echo $val["nom"]; ?></td>
+			<td class="text-center" style="width: 30%; word-wrap: anywhere;"><?php if (isset($team) && $team == $val['nom']) echo "<a id=\"team\"></a>"; echo $val["nom"]; ?></td>
 			<td style="width: 45%;"><?php if ($jours > 0) echo $jours." jour(s) "; if ($heures > 0) echo $heures." heure(s) "; if ($minutes > 0) echo $minutes." minute(s) "; if ($secondes > 0) echo $secondes." seconde(s)"; ?></td>
 		</tr>
 <?php
