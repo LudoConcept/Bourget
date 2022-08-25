@@ -46,15 +46,15 @@ include_once('./action/bdd_connect.php');
 		<tbody>
 		<?php
 		foreach ($result as $val){ 
-		$jours = floor($val["duree"] / (60 * 60 * 24));
+		$jours = 0;
 		$heures = 0;
 		$minutes = 0;
 		$secondes = 0;
 		if ($val["duree"] > 0) {
-			$jours = floor($val["duree"] / (60 * 60 * 24));
-			$temp = ($jours * 60 * 60 * 24);
-			$heures = floor(($val["duree"] - $temp) / (60 * 60));
-			$temp += ($heures * 60 * 60);
+			$jours = floor($val["duree"] / (86400));
+			$temp = ($jours * 86400);
+			$heures = floor(($val["duree"] - $temp) / (3600));
+			$temp += ($heures * 3600);
 			$minutes = floor(($val["duree"] - $temp) / 60);
 			$secondes = floor($val["duree"] - (($temp + $minutes * 60)));
 		} ?>
