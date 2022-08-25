@@ -40,6 +40,7 @@ include ('./includes/include_external_script.php');
                  '-ms-transform' : 'rotate('+ degrees +'deg)',
                  'transform' : 'rotate('+ degrees +'deg)'});
 		};
+		var cookieteam = "<?php echo COOKIE_TEAM; ?>";
 	</script>
 	
 	<script>	
