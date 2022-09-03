@@ -121,20 +121,25 @@ $save_temps_en_sec = $temps_en_sec;
 // AJOUTER UN AUTRE CHECK SI L'EQUIPE A DEJA ENREGISTRE SON TEMPS, POUR NE PAS REMETTRE LE FORMULAIRE
 if (SAVESCORE && !cookieExists(COOKIE_TEAM)) { ?>
 <div class="row marge0">
-	<div class="col-12">
+	<div class="col-12 mt-1 mb-1">
 		<div id="responseform" style="display: none;">
 		</div>
 	</div>
 </div>
-<form id="saveteamform">
-	<!-- <?php echo $temps_depart; ?> <?php echo $temps_fin; ?> <?php echo $duree; ?> <?php echo $nb_juste; ?> -->
-	<!-- data à sauver pour les teams + manque nom de la team -->
-	<input type="text" name="team" id="team" value="" placeholder="Votre nom d'équipe" style="width: 80%;"><input type="submit" value="Enregistrer votre temps !" id="saveteam">
-	<input type="hidden" name="start" value="<?php echo $temps_depart; ?>">
-	<input type="hidden" name="end" value="<?php echo $temps_fin; ?>">
-	<input type="hidden" name="duree" value="<?php echo $duree; ?>">
-	<input type="hidden" name="rep_juste" value="<?php echo $nb_juste; ?>">
-</form><?php }
+<div class="row marge0">
+	<div class="col-12 text-center">
+	<form id="saveteamform">
+		<!-- <?php echo "$temps_depart $temps_fin $duree $nb_juste"; ?> -->
+		<!-- data à sauver pour les teams + manque nom de la team -->
+		<p class="text-couleur">Nommez votre équipe et sauvegardez votre temps&nbsp;!</p>
+		<input type="text" name="team" id="team" value="" placeholder="Votre nom d'équipe" style="width: 80%;" class="mb-1"><input type="submit" value="Enregistrer votre temps !" id="saveteam" class="mb-1">
+		<input type="hidden" name="start" value="<?php echo $temps_depart; ?>">
+		<input type="hidden" name="end" value="<?php echo $temps_fin; ?>">
+		<input type="hidden" name="duree" value="<?php echo $duree; ?>">
+		<input type="hidden" name="rep_juste" value="<?php echo $nb_juste; ?>">
+	</form>
+	</div>
+</div><?php }
 elseif (SAVESCORE && cookieExists(COOKIE_TEAM)){ ?>
 <div class="row marge0">
 	<div class="col-12">
