@@ -13,6 +13,7 @@ createCookie("bourget_question", "start", 7);
 createCookie("bourget_temps_final", "InGame", 7);
 createCookie("bourget_timer", <?php echo time()-1672; ?>, 7);
 createCookie("bourget_vibrophone", 13242, 7);
+createCookie("bourget_team", "", -7);
 </script>
 </body>
 </html>
