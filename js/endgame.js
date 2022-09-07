@@ -6,7 +6,11 @@ $(function(){
 		console.log("save team");
 		// tenter d'ajouter la team dans la base
 		console.log($("#saveteamform").serialize());
-		
+		//console.log($("#team").val().length);
+		if ($("#team").val().length > 64){
+			$("#responseform").html("Le nom d'équipe choisie est trop long. Vous pouvez en trouver un plus court&nbsp;?").show("fast", "swing").parent().parent().addClass("bg-warning text-light");
+			return;
+		}
 		$.post('./action/bdd_save_score.php',
 			$("#saveteamform").serialize(),
 			function(result){
