@@ -8,7 +8,7 @@ $(function(){
 		console.log($("#saveteamform").serialize());
 		//console.log($("#team").val().length);
 		if ($("#team").val().length > 64){
-			$("#responseform").html("Le nom d'équipe choisie est trop long. Vous pouvez en trouver un plus court&nbsp;?").show("fast", "swing").parent().parent().addClass("bg-warning text-light");
+			$("#responseform").html("Le nom d'équipe choisi est trop long. Pouvez-vous en trouver un plus court&nbsp;?").show("fast", "swing").parent().parent().addClass("bg-warning text-light");
 			return;
 		}
 		$.post('./action/bdd_save_score.php',
