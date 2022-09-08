@@ -7,10 +7,10 @@
 	$dbname = "bourget";
 	
 	// prod
-	/* $servername = "acrcugpcity.mysql.db";
+	$servername = "acrcugpcity.mysql.db";
 	$username = "acrcugpcity";
 	$password = "Evasi0n73";
-	$dbname = "acrcugpcity"; */
+	$dbname = "acrcugpcity";
 	
 	$sql = "";
 	$conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
