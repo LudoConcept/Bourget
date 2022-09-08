@@ -7,8 +7,12 @@ $(function(){
 		// tenter d'ajouter la team dans la base
 		console.log($("#saveteamform").serialize());
 		//console.log($("#team").val().length);
-		if ($("#team").val().length > 64){
+		if ($("#team").val().length > 60){
 			$("#responseform").html("Le nom d'équipe choisi est trop long. Pouvez-vous en trouver un plus court&nbsp;?").show("fast", "swing").parent().parent().addClass("bg-warning text-light");
+			return;
+		}
+		if ($("#team").val().length < 2){
+			$("#responseform").html("Le nom d'équipe est un peu court... Pouvez-vous en trouver un plus long&nbsp;?").show("fast", "swing").parent().parent().addClass("bg-warning text-light");
 			return;
 		}
 		$.post('./action/bdd_save_score.php',
