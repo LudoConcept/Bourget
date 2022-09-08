@@ -132,7 +132,7 @@ if (SAVESCORE && !cookieExists(COOKIE_TEAM)) { ?>
 		<!-- <?php echo "$temps_depart $temps_fin $duree $nb_juste"; ?> -->
 		<!-- data à sauver pour les teams + manque nom de la team -->
 		<p class="text-couleur">Nommez votre équipe et sauvegardez votre temps&nbsp;!</p>
-		<input type="text" name="team" id="team" value="" placeholder="Votre nom d'équipe" style="width: 80%;" class="mb-1"><input type="submit" value="Enregistrer votre temps !" id="saveteam" class="mb-1">
+		<input type="text" name="team" id="team" value="" placeholder="Votre nom d'équipe" style="width: 80%;" class="mb-1" maxlength="60"><input type="submit" value="Enregistrer votre temps !" id="saveteam" class="mb-1">
 		<input type="hidden" name="start" value="<?php echo $temps_depart; ?>">
 		<input type="hidden" name="end" value="<?php echo $temps_fin; ?>">
 		<input type="hidden" name="duree" value="<?php echo $duree; ?>">
