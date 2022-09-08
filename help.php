@@ -27,10 +27,13 @@
 echo ("<br>Valeur mission ROSES<br><br>Avant changement : ".$read_val_cook_ROSES."<br>Après changement : ".ACTIVE);
 ?>
 <br><br>
-<input type=button onclick=window.location.href='https://jeuext.la-grande-evasion.com/bourget/index.php'; value='Retourner à la Game'/>
+<input type=button onclick=window.location.href='./index.php'; value='Retourner à la Game'/>
+
+<!--
 <br><br><br><br><br>Si ça n'a pas marché !<br><br>
 <a class="cercle point_actif" style="top: 41%; left: 30%; width:23%; height:2%;" href="https://jeuext.la-grande-evasion.com/bourget/interface.php" title="13"></a>
 <br><br><br><br><br><br>
 <input type=button onclick=window.location.href='https://jeuext.la-grande-evasion.com/bourget/interface.php'; value='Forcer la mission ROSES'/>
+--->
 </body>
 </html>
