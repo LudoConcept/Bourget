@@ -116,7 +116,7 @@ define("INDICE", "Indice");
 //Constantes tous jeu
 define("PATH", "/");
 define("COOKIESECURE", FALSE);
-define("COOKIEHTTPONLY", TRUE);
+define("COOKIEHTTPONLY", FALSE);
 
 define("INACTIVE", 0);
 define("ACTIVE", 1);
