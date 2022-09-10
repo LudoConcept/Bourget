@@ -2,7 +2,7 @@
 // options pour les cookies, la clef expires doit être précisée avant utilisation du tableau
 // define("DOMAIN", "bourget");
 // define("DOMAIN", "localbourget");
-define("DOMAIN", "jeuext.la-grande-evasion.com");
+define("DOMAIN", "");
 // define("DOMAIN", $_SERVER['HTTP_HOST']); // belle tentative, mais marche pas tout à fait. A voir pour plus tard.
 
 $options = ['expires' => -1, 'path' => PATH, 'domain' => DOMAIN, 'secure' => COOKIESECURE, 'httponly' => COOKIEHTTPONLY, 'samesite' => 'Lax'];
@@ -12,7 +12,7 @@ function createCookie($nom, $value){
 	$expires = time()+(60*60*24*10);
 	$options['expires'] = $expires;
 	setcookie($nom, $value, $options);
-	//setcookie($nom, $value, $expires, PATH);
+	// setcookie($nom, $value, $expires, PATH);
 }
 
 function cookieExists($cookie){
