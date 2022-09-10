@@ -24,7 +24,6 @@ define("ETAT_CARRE",2);
 define("ETAT_POTAR1",3);
 define("ETAT_POTAR2",4);
 
-define("DOMAIN", "bourget");
 define("FICHIER_CSS","./css/bourget.css");
 
 define("IMG_FOND","./images/background.jpg");
