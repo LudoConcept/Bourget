@@ -1,11 +1,17 @@
 <?php
 // options pour les cookies, la clef expires doit être précisée avant utilisation du tableau
+// define("DOMAIN", "bourget");
+define("DOMAIN", "localbourget");
+// define("DOMAIN", "jeuext.la-grande-evasion.com");
+
 $options = ['expires' => -1, 'path' => PATH, 'domain' => DOMAIN, 'secure' => COOKIESECURE, 'httponly' => COOKIEHTTPONLY, 'samesite' => 'Lax'];
 
 function createCookie($nom, $value){
 	global $options;
 	$expires = time()+(60*60*24*10);
-	setcookie($nom, $value, $expires, PATH);
+	$options['expires'] = $expires;
+	setcookie($nom, $value, $options);
+	//setcookie($nom, $value, $expires, PATH);
 }
 
 function cookieExists($cookie){
