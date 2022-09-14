@@ -8,6 +8,10 @@ set_error_handler(function($errno, $errstr, $errfile, $errline, $errcontext) {
 });
 
 try{
+	define("DATAERR", 'erreur');
+	define("MSG", 'msg');
+	define("DATASAVE", 'save');
+	
 	if (file_exists('../param/global.php')) // vérif nécessaire pour les appels ajax
 	{
 		$p = "../";	
@@ -20,10 +24,6 @@ try{
 	include_once($p.'fonctions/php_cookies.php');
 
 	include_once($p.'action/bdd_connect.php');
-	
-	define("MSG", 'msg');
-	define("DATAERR", 'erreur');
-	define("DATASAVE", 'save');
 	
 	// check des conditions + prépa des valeurs de retour
 	$data = Array();
@@ -58,10 +58,15 @@ catch(PDOException $e){
 		$data[DATASAVE] = false;
 		$data[MSG] = "<p>Une autre &eacute;quipe a choisi le m&ecirc;me nom. Trouvons-en un autre&nbsp;!</p>";
 	}
-	else {
+	elseif (isset($statement)) {
 		$data[DATAERR] = true;
 		// $data[MSG] = "<p>Erreur aupr&eagrav;s de la base de donn&eacute;es.</p><p>Ligne ".$e->getLine()." : ".$e->getMessage()."</p><p>".implode(" ||| ",$statement->errorInfo())."</p>";
 		$data[MSG] = "<p>Erreur auprès de la base de donn&eacute;es.</p><p>Intern error code ".$statement->errorInfo()[1]." ---- Line ".$e->getLine()." : </p><p>".$e->getMessage()."</p>";
+	}
+	else {
+		$data[DATAERR] = true;
+		// $data[MSG] = "<p>Erreur aupr&eagrav;s de la base de donn&eacute;es.</p><p>Ligne ".$e->getLine()." : ".$e->getMessage()."</p><p>".implode(" ||| ",$statement->errorInfo())."</p>";
+		$data[MSG] = "<p>Erreur d'accès à la base de données.</p><p>Veuillez contacter un administrateur.</p>";
 	}
 }
 catch(Exception $e){
