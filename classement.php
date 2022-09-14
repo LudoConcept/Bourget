@@ -61,9 +61,9 @@ include_once('./action/bdd_connect.php');
 			$minutes = floor(($val["duree"] - $temp) / 60);
 			$secondes = floor($val["duree"] - (($temp + $minutes * 60)));
 		} ?>
-		<tr>
+		<tr <?php if ($team && $team == $val['nom']) echo "id=\"team\" class=\"yourteam\""; ?>>
 			<td style="width: 25%;"><?php echo date("d/m/y", $val["end"]); ?></td>
-			<td class="text-center" style="width: 30%; word-wrap: anywhere;"><?php if ($team && $team == $val['nom']) echo "<a id=\"team\" class=\"yourteam\"></a>"; echo $val["nom"]; ?></td>
+			<td class="text-center" style="width: 30%; word-wrap: anywhere;"><?php echo $val["nom"]; ?></td>
 			<td style="width: 45%;"><?php if ($jours > 0) echo $jours." jour(s) "; if ($heures > 0) echo $heures."h "; if ($minutes > 0) echo $minutes." min "; echo $secondes." sec"; ?></td>
 		</tr>
 <?php
