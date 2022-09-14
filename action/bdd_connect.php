@@ -1,16 +1,17 @@
 <?php
 
-	// dev
-	$servername = "localhost";
-	$username = "bourget";
-	$password = "test";
-	$dbname = "bourget";
+	if ($_SERVER['HTTP_HOST'] == "jeuext.la-grande-evasion.com") { // on est en prod
+		$servername = "acrcugpcity.mysql.db";
+		$username = "acrcugpcity";
+		$password = "Evasi0n73";
+		$dbname = "acrcugpcity";
+	} else { // on est en dev
+		$servername = "localhost";
+		$username = "bourget";
+		$password = "test";
+		$dbname = "bourget";
+	}
 	
-	// prod
-	$servername = "acrcugpcity.mysql.db";
-	$username = "acrcugpcity";
-	$password = "Evasi0n73";
-	$dbname = "acrcugpcity";
 	
 	$sql = "";
 	$conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
