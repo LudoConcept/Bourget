@@ -724,6 +724,11 @@ h2 {
 	opacity: 0;
 }
 
+.score {
+	border-collapse: separate;
+	border-spacing: 0px;
+}
+
 .yourteam{
 	color:#C90;
 }
