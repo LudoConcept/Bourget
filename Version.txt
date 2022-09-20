@@ -20,8 +20,9 @@ Version 1.4
 Evolution V1.4 :
 1. Ajout d'une page help.php, pour permettre de redémarrer l'énigme des rosiers.
 2. Ajout d'une page cookie-test.php qui amène le jeu à la fin.
-3. Modif dans le code, tous les cookies ont une date d'expiration. Permet gérer la fermeture du navigateur.
+3. Modif dans le code, tous les cookies ont une date d'expiration. Permet gérer la fermeture du navigateur, de reprendre le jeu plus tard.
 4. Ajout d'une possibilité d'enregistrer les temps des équipes et afficher les scores des 30 derniers jours. Possibilité de désactiver la fonction. Les scores sont stockés sur une bdd.
+
 
 ********************************
 Date d'installation : 31/05/2022
