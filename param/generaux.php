@@ -2,6 +2,7 @@
 
 // DOIT-ON SAUVEGARDER LES TEMPS A LA FIN DE LA GAME ???
 define("SAVESCORE", true);
+define("TPSMIN", 1800); // Temps minimum pour l'affichage des temps dans le classement
 
 //Paramètres de ce jeu spécifiquement
 define("COOKIE_VIBROPHONE", "bourget_vibrophone");
