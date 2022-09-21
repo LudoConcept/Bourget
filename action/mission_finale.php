@@ -113,7 +113,11 @@ $save_temps_en_sec = $temps_en_sec;
 		} else {
 			$affichage_final = "<p class=\"text-couleur-gros\">".$Minute.':'.$temps_en_sec."</p>";				
 		}
+		
 		echo "<br><br>On mélange tout ça et on arrive à votre score final !<br>".$affichage_final;
+		if ($duree < 1800)
+			echo "<p>Votre temps est particulièrement bas ! Avez-vous rencontré un soucis pendant votre partie ? Ou alors vous êtes trop fort !!<br>
+					Nous ne pourrons pas afficher votre score dans le classement final !</p>";
 		echo "Il me reste à vous dire au revoir, puissiez vous garder en mémoire :<br><center>Tout peuple qui oublie son passé<br>se condamne à le revivre.</center>"
 		?>
 	</div>
