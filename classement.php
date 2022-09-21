@@ -27,28 +27,28 @@ include_once('./action/bdd_connect.php');
 	$timestamp30days = strtotime(date("m/d/Y")) - 2592000;
 	$timestamp1year = strtotime(date("m/d/Y")) - 31536000;
 	$usedtimestamp = $timestamp1year;
-	$sql = "SELECT * FROM `game` WHERE `end` > ? ORDER BY duree ASC";
+	$sql = "SELECT * FROM `game` WHERE `end` > ? AND `duree` > ? ORDER BY duree ASC";
 	// requete 50 meilleurs
 	// "SELECT * FROM `game` ORDER BY duree ASC LIMIT 0, 50"
 	// CHECK SI J'AI PAS FAIT UN TRUC SIMILAIRE POUR KHONSOU  (affichage de X resultats, page par page)
 	if (cookieExists(COOKIE_TEAM)) $team = $_COOKIE[COOKIE_TEAM];
 	else $team = false;
 	$statement = $conn->prepare($sql);
-	$statement->execute([$usedtimestamp]);
+	$statement->execute([$usedtimestamp, TPSMIN]);
 	$result = $statement->fetchAll();
 	if (!$result) echo "Pas de résultat"; 
 	else { ?>
 	<table class="score">
 		<thead>
 			<tr class="text-center">
-				<th>Date</th>
+				<th>Position</th>
 				<th>&Eacute;quipe</th>
 				<th>Temps</th>
 			</tr>
 		</thead>
 		<tbody>
 		<?php
-		foreach ($result as $val){ 
+		foreach ($result as $key=>$val){ 
 		$jours = 0;
 		$heures = 0;
 		$minutes = 0;
@@ -62,7 +62,7 @@ include_once('./action/bdd_connect.php');
 			$secondes = floor($val["duree"] - (($temp + $minutes * 60)));
 		} ?>
 		<tr <?php if ($team && $team == $val['nom']) echo "id=\"team\" class=\"yourteam\""; ?>>
-			<td style="width: 25%;"><?php echo date("d/m/y", $val["end"]); ?></td>
+			<td style="width: 25%;"><?php /* echo date("d/m/y", $val["end"]); */ echo $key+1; ?></td>
 			<td class="text-center" style="width: 30%; word-wrap: anywhere;"><?php echo $val["nom"]; ?></td>
 			<td style="width: 45%;"><?php if ($jours > 0) echo $jours." jour(s) "; if ($heures > 0) echo $heures."h "; if ($minutes > 0) echo $minutes." min "; echo $secondes." sec"; ?></td>
 		</tr>
