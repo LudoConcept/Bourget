@@ -49,24 +49,26 @@ include_once('./action/bdd_connect.php');
 		<tbody>
 		<?php
 		foreach ($result as $key=>$val){ 
-		$jours = 0;
-		$heures = 0;
-		$minutes = 0;
-		$secondes = 0;
-		if ($val["duree"] > 0) {
-			$jours = floor($val["duree"] / (86400));
-			$temp = ($jours * 86400);
-			$heures = floor(($val["duree"] - $temp) / (3600));
-			$temp += ($heures * 3600);
-			$minutes = floor(($val["duree"] - $temp) / 60);
-			$secondes = floor($val["duree"] - (($temp + $minutes * 60)));
-		} ?>
+			$jours = 0;
+			$heures = 0;
+			$minutes = 0;
+			$secondes = 0;
+			if ($val["duree"] < 10800 || ($team && $team == $val["nom"])) {
+				if ($val["duree"] > 0) {
+					$jours = floor($val["duree"] / (86400));
+					$temp = ($jours * 86400);
+					$heures = floor(($val["duree"] - $temp) / (3600));
+					$temp += ($heures * 3600);
+					$minutes = floor(($val["duree"] - $temp) / 60);
+					$secondes = floor($val["duree"] - (($temp + $minutes * 60)));
+				} ?>
 		<tr <?php if ($team && $team == $val['nom']) echo "id=\"team\" class=\"yourteam\""; ?>>
 			<td style="width: 25%;"><?php /* echo date("d/m/y", $val["end"]); */ echo $key+1; ?></td>
 			<td class="text-center" style="width: 30%; word-wrap: anywhere;"><?php echo $val["nom"]; ?></td>
 			<td style="width: 45%;"><?php if ($jours > 0) echo $jours." jour(s) "; if ($heures > 0) echo $heures."h "; if ($minutes > 0) echo $minutes." min "; echo $secondes." sec"; ?></td>
 		</tr>
 <?php
+			}
 		} ?>
 		</tbody>
 	</table><?php
