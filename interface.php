@@ -33,7 +33,30 @@ include ('./includes/include_external_script.php');
 	<!-- SCRIPT PERSONNALISEE ICI -->
 	<script src="./js/Cook.js"></script>
 	
-	<script>	
+	<script>
+		/* Afficher_info_mission remplit le bloc_mission en fonction de la mission en cours */
+		function afficher_info_mission(m) {
+				focus = m;
+				var isError = false;
+				$.ajax({
+					url : './action/data_mission.php',
+					type : 'POST',
+					dataType : 'html',
+					data: {mission : m},
+					success : function(resultat, statut){
+						$("#bloc_mission").html(resultat);
+					},
+					error : function(resultat, statut, erreur){
+						isError = true;
+						$("#bloc_mission").html("<p class=\"text-mission\">Une erreur est survenue. Merci de recharger la page.</p><p>ERROR : "+erreur.toString()+"</p><p>"+statut.toString()+"</p>").show();
+					},
+					complete : function(resultat, statut){						
+					}
+				});				
+				$('#bloc_carte').hide("slow", "swing");
+				$('#bloc_mission').show("slow", "swing");
+			}
+			
 		jQuery.fn.rotate = function(degrees) {
 			$(this).css({'-webkit-transform' : 'rotate('+ degrees +'deg)',
                  '-moz-transform' : 'rotate('+ degrees +'deg)',
@@ -551,28 +574,7 @@ include ('./includes/include_external_script.php');
 				});
 			}
 						
-			/* Afficher_info_mission remplit le bloc_mission en fonction de la mission en cours */
-			function afficher_info_mission(m) {
-				focus = m;
-				var isError = false;
-				$.ajax({
-					url : './action/data_mission.php',
-					type : 'POST',
-					dataType : 'html',
-					data: {mission : m},
-					success : function(resultat, statut){
-						$("#bloc_mission").html(resultat);
-					},
-					error : function(resultat, statut, erreur){
-						isError = true;
-						$("#bloc_mission").html("<p class=\"text-mission\">Une erreur est survenue. Merci de recharger la page.</p><p>ERROR : "+erreur.toString()+"</p><p>"+statut.toString()+"</p>").show();
-					},
-					complete : function(resultat, statut){						
-					}
-				});				
-				$('#bloc_carte').hide("slow", "swing");
-				$('#bloc_mission').show("slow", "swing");
-			}
+			
 			
 			function cacher_resultat(){
 				$("#resultat").hide("slow","swing");
@@ -965,7 +967,7 @@ include ('./includes/include_external_script.php');
 				var position = window.getComputedStyle(element, null)['z-index'];
 				var valeurs = document.getElementById("poi_arbre_valeurs").innerHTML;
 				
-				position -= 100;			
+				position -= 100;
 				var valeurs_param = valeurs.substr(position,1);	
 
 				//console.log('position : '+position);

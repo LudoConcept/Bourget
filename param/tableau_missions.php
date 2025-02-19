@@ -684,7 +684,7 @@ $info_missions[VIBRO6] =	[TITLE => "Vibrophone",
 									];
 									
 $info_missions[STATUE_FOND] =	[TITLE => "",
-									DESC => "<p class=\"text-mission\">Oh bonjour, bienvenue dans mon petit temple végétal, n'est il pas mignon ?<br>Il y a tout autour de nous une multitude d'arbres incroyables, saurez vous les retrouver ?</p><p class=\"text-couleur\">Vous pouvez ouvrir l'enveloppe 'Les racines de la nature'.<br>Trouvez chacun des arbres et indiquez son emplacement sur la carte. Revenez me voir lorque vous les aurez tous trouvé !</p>",
+									DESC => "<p class=\"text-mission\">Oh bonjour, bienvenue dans mon petit temple végétal, n'est il pas mignon ?<br>Il y a tout autour de nous une multitude d'arbres incroyables, saurez vous les retrouver ?</p><p class=\"text-couleur\">Vous pouvez ouvrir l'enveloppe 'Les racines de la nature'.<br>Trouvez chacun des arbres et indiquez son emplacement sur la carte. Revenez me voir lorque vous les aurez tous trouvé !<br><br>Attention !<br>Le premier arbre a été coupé, mais il reste tout à fait reconnaissable !</p>",
 									CLUE => ["", "", "", "", ""],
 									X => 41,
 									Y => 72,

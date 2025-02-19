@@ -3,6 +3,8 @@
 // ON A LES INFOS DE MISSIONS, L'ETAT DES DONNEES ET LE TABLEAU DE COOKIE EST OK.
 //id de la mission en cours : $_POST['mission']
 
+$arbre_coupe = "<br><br>N'oubliez pas&nbsp;!<br>Le premier arbre a été coupé. Malgré tout il reste parfaitement reconnaissable.";
+
 		//Lecture du cookie pour affichage du vibro
 		$etat_poi_arbres = read_cookie_poi_arbres();
 		$nb_val_1		 = 0;
@@ -16,10 +18,11 @@
 			}
 		}
 
-		if ($nb_val_1 == 8) {
+		if ($nb_val_1 == 8 || $nb_val_1 == 7) {
 			//C'est le bon nombre d'arbre, on vérifie qu'il s'agit bien des 8 bons (id de 1 à 8)
 			$val_poi_arbre = substr($etat_poi_arbres,1,8);
-			if ($val_poi_arbre == "11111111") {
+			// L'arbre 1, la racine, a été coupé. On valide même si la racine est out.
+			if ($val_poi_arbre == "11111111" || $val_poi_arbre == "10111111" || $val_poi_arbre == "12111111") {
 				//ok mission terminée
 				$fini = "Oui";
 				$txt = "Toutes mes félicitations !!<br>Ne sont ils pas trop mignons,<br>gigantesques, tortueux,<br>hypnotisant, prodigieux ??<br>Ces arbres ont été planté,<br>il y a des dizaines et des dizaines d'années,<br>à eux seuls ils protègent les Jardins du Prieuré,<br> de tous les malheurs qui pourraient leur arriver.<br>Chaque branche raconte sa propre histoire,<br>nous invite à la contemplation et partage son savoir.";
@@ -29,17 +32,17 @@
 			}
 			else
 			{
-				$txt = "Cette quête aux arbres n'est pas une mince affaire, vous en avez trouvé 8, c'est très bien mais ce ne sont pas les 8 que vous avez en photo...<br>Repartez en chasse à ces 8 fantastiques !";			
+				$txt = "Cette quête aux arbres n'est pas une mince affaire, vous en avez trouvé 8, c'est très bien mais ce ne sont pas les 8 que vous avez en photo...<br>Repartez en chasse à ces 8 fantastiques !".$arbre_coupe;
 				
 			}
 		} else {
 			if ($nb_val_1 > 8) {
-				$txt = "Cette quête aux arbres n'est pas une mince affaire, vous en avez trouvé ".$nb_val_1.", c'est un peu trop, vous n'en avez que 8 à trouver !<br>Repartez en chasse à ces 8 fantastiques !";				
+				$txt = "Cette quête aux arbres n'est pas une mince affaire, vous en avez trouvé ".$nb_val_1.", c'est un peu trop, vous n'en avez que 8 à trouver !<br>Repartez en chasse à ces 8 fantastiques !".$arbre_coupe;
 			} else {
 				if ($nb_val_1 == 0) {
-					$txt = "Vous n'avez trouvé aucun arbre ?<br>Revenez lorsque vous aurez trouvé les 8 arbres qui correspondent aux photos que vous avez !";
+					$txt = "Vous n'avez trouvé aucun arbre ?<br>Revenez lorsque vous aurez trouvé les 8 arbres qui correspondent aux photos que vous avez !".$arbre_coupe;
 				} else {
-					$txt = "Cette quête aux arbres n'est pas une mince affaire, vous en avez trouvé ".$nb_val_1.", c'est très bien mais il vous en manque encore...<br>Repartez en chasse à ces 8 fantastiques !";
+					$txt = "Cette quête aux arbres n'est pas une mince affaire, vous en avez trouvé ".$nb_val_1.", c'est très bien mais il vous en manque encore...<br>Repartez en chasse à ces 8 fantastiques !".$arbre_coupe;
 				}				
 			}
 		}		
