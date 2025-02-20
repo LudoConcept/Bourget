@@ -962,12 +962,14 @@ include ('./includes/include_external_script.php');
 			$("#bloc_carte").on('click', ".arbre", function()
 			{
 				event.preventDefault();
+				console.log(this);
 
-				var element = document.getElementById($(this).attr('id'));
-				var position = window.getComputedStyle(element, null)['z-index'];
+				// var element = document.getElementById($(this).attr('id'));
+				// var position = window.getComputedStyle(element, null)['z-index'];
+				// position -= 100;
+				var position = parseInt(this.dataset.num_arbre);
 				var valeurs = document.getElementById("poi_arbre_valeurs").innerHTML;
 				
-				position -= 100;
 				var valeurs_param = valeurs.substr(position,1);	
 
 				//console.log('position : '+position);
@@ -977,13 +979,13 @@ include ('./includes/include_external_script.php');
 
 				if (valeurs_param == "1") {	
 					valeurs_param = "2";
-					document.getElementById($(this).attr('id')).src = "<?php echo IMG_PAS_ARBRE ?>";
+					this.src = "<?php echo IMG_PAS_ARBRE; ?>";
 				} else if (valeurs_param == "2") {		
 					valeurs_param = "0";
-					document.getElementById($(this).attr('id')).src = "<?php echo IMG_ARBRE ?>";			
+					this.src = "<?php echo IMG_ARBRE; ?>";
 				} else if (valeurs_param == "0") {		
 					valeurs_param = "1";
-					document.getElementById($(this).attr('id')).src = "<?php echo IMG_EST_ARBRE ?>";
+					this.src = "<?php echo IMG_EST_ARBRE; ?>";
 				}						
 				valeurs = valeurs.substr(0,position) + valeurs_param + valeurs.substr(position+1);	
 				document.getElementById("poi_arbre_valeurs").innerHTML = valeurs;
@@ -1001,23 +1003,12 @@ include ('./includes/include_external_script.php');
 			$("#bloc_carte").on('click', ".map_elt", function()	{
 				event.preventDefault();
 				
-				var element = document.getElementById($(this).attr('id'));
-				var position = window.getComputedStyle(element, null)['z-index'];
+				var position = parseInt(this.dataset.num_elt);
 				var valeurs = document.getElementById("poi_map_valeurs").innerHTML;
-				position -= 22;			
-				var valeurs_param = valeurs.substr(position,1);
-				if (valeurs_param == "1") {	
-					valeurs_param = "2";				
-				} else if (valeurs_param == "2") {		
-					valeurs_param = "3";				
-				} else if (valeurs_param == "3") {		
-					valeurs_param = "4";				
-				} else if (valeurs_param == "4") {		
-					valeurs_param = "1";							
-				}					
-				element.src = "<?php echo IMG_MAP_ELT ?>"+position+"_"+valeurs_param+".png";
-
-				valeurs = valeurs.substr(0,position) + valeurs_param + valeurs.substr(position+1);	
+				var valeurs_param = parseInt(valeurs.substr(position,1));
+				valeurs_param = (valeurs_param % 4)+1;
+				this.src = "<?php echo IMG_MAP_ELT ?>"+position+"_"+valeurs_param+".png";
+				valeurs = valeurs.substr(0,position) + valeurs_param.toString() + valeurs.substr(position+1);
 				document.getElementById("poi_map_valeurs").innerHTML = valeurs;
 				createCookie(cookie_poi_map, valeurs, 7);		
 			});

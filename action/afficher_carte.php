@@ -122,7 +122,7 @@ try{
 				?>		
 			
 				<div style="position: absolute; left: 0%; top: <?php echo $info_poi_maps[$i][MAP_TOP]; ?>%; width:100%;">			
-				<img id="<?php echo $info_poi_maps[$i][MAP_ID]; ?>" class="<?php echo $id_actif; ?>" style="position: relative; left: <?php echo $info_poi_maps[$i][MAP_LEFT]; ?>%; width:<?php echo $info_poi_maps[$i][MAP_WIDTH]; ?>%; <?php echo $tranformation; ?> z-index:<?php echo $info_poi_maps[$i][MAP_Z_INDEX]; ?>" src="<?php echo $image; ?>" alt="<?php echo $info_poi_maps[$i][MAP_ALT].$val_poi_map; ?>" />
+				<img data-num_elt="<?php echo $i; ?>" id="<?php echo $info_poi_maps[$i][MAP_ID]; ?>" class="<?php echo $id_actif; ?>" style="position: relative; left: <?php echo $info_poi_maps[$i][MAP_LEFT]; ?>%; width:<?php echo $info_poi_maps[$i][MAP_WIDTH]; ?>%; <?php echo $tranformation; ?> z-index:<?php echo $info_poi_maps[$i][MAP_Z_INDEX]; ?>" src="<?php echo $image; ?>" alt="<?php echo $info_poi_maps[$i][MAP_ALT].$val_poi_map; ?>" />
 				</div>				
 			
 			<!--
@@ -169,7 +169,7 @@ try{
 					
 					?>
 					<div style="position: absolute; left: 0%; top: <?php echo $info_poi_arbres[$i][TOP] ?>%; width:100%;">
-						<img id="<?php echo $info_poi_arbres[$i][ID]; ?>" class="arbre" style="position: relative; left: <?php echo $info_poi_arbres[$i][LEFT]; ?>%; width:6%; z-index:<?php echo $info_poi_arbres[$i][Z_INDEX]; ?>" src="<?php echo $Selection_img; ?>" alt="<?php echo $info_poi_arbres[$i][ALT]; ?>" />
+						<img data-num_arbre="<?php echo $i; ?>" id="<?php echo $info_poi_arbres[$i][ID]; ?>" class="arbre" style="position: relative; left: <?php echo $info_poi_arbres[$i][LEFT]; ?>%; width:6%; z-index:<?php echo $info_poi_arbres[$i][Z_INDEX]; ?>" src="<?php echo $Selection_img; ?>" alt="<?php echo $info_poi_arbres[$i][ALT]; ?>" />
 					</div>
 					<?php
 				}				
