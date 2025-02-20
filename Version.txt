@@ -14,6 +14,18 @@ Autres remarques :
 10. Tester d'encapsuler l'appli ?? 
 
 ********************************
+Date d'installation : 20/02/2025
+Version 1.5
+
+Evolution V1.5 :
+1. Modif du code autour des arbres et des éléments de la carte qui changent.
+    Code plus simple et plus robuste.
+2. Modif des arbres, la racine (arbre 1) ayant été coupé. La racine n'est pas nécessaire pour valider l'énigme.
+    Ajout de texte pour dire qu'elle a été coupé, mais qu'elle reste reconnaissable.
+3. 
+4. 
+
+********************************
 Date d'installation : 08/09/2022
 Version 1.4
 
