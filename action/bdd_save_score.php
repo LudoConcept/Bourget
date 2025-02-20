@@ -48,7 +48,7 @@ try{
 		$statement = $conn->prepare($sql);
 		$statement->execute($array);
 		$data[DATASAVE] = true;
-		$data[MSG] = "RECORD";
+		$data[MSG] = "ENREGISTREMENT...";
 	}
 	
 }
