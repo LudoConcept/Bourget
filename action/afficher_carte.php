@@ -95,15 +95,18 @@ try{
 					<div class="carre <?php echo $class_couleur; ?>" style="top: 71%; left: 72%; width:14.5%; height:10%; z-index:4;" id="fond_elt3"></div>
 					<!-- Elément fontaine bas -->
 					<div class="cercle <?php echo $class_couleur; ?>" style="top: 66%; left: 37%; width:11%; height:4%; z-index:5;" id="fond_elt4"></div>
+				<?php if (!CABANE_CRASH){ ?>
 					<!-- Elément cube -->
 					<div class="cercle <?php echo $class_couleur; ?>" style="top: 27.5%; left: 79.5%; width:7%; height:3.5%; z-index:6;" id="fond_elt5"></div>
+				<?php } ?>
 					<!-- Elément arbre en bas à gauche -->
 					<div class="cercle <?php echo $class_couleur; ?>" style="top: 75%; left: 28%; width:9%; height:4.5%; z-index:7;" id="fond_elt6"></div>
 				</div>
 				<?php
 			}
 			
-			$etat_poi_map = read_cookie_poi_map();			
+			$etat_poi_map = read_cookie_poi_map();
+			if (CABANE_CRASH) $etat_poi_map[4] = 4;		
 			?>			
 			<div id="poi_map_valeurs" class="hide" ><?php echo $etat_poi_map;?></div>
 			<?php
@@ -118,7 +121,7 @@ try{
 				} else {*/
 					$tranformation = "";
 				//}
-				
+				if (!CABANE_CRASH || ($i != 4 && CABANE_CRASH)) {
 				?>		
 			
 				<div style="position: absolute; left: 0%; top: <?php echo $info_poi_maps[$i][MAP_TOP]; ?>%; width:100%;">			
@@ -130,7 +133,8 @@ try{
 				<img id="<?php echo $info_poi_maps[$i][MAP_ID]; ?>" class="<?php echo $id_actif; ?>" style="width: <?php echo $info_poi_maps[$i][MAP_WIDTH]; ?>%; <?php echo $tranformation; ?>" src="<?php echo $image; ?>" alt="<?php echo $info_poi_maps[$i][MAP_ALT].$val_poi_map; ?>" />
 			</span>
 			-->	
-				<?php												
+				<?php
+				}											
 			}				
 		
  /*********************************************************************
