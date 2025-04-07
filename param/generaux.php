@@ -5,7 +5,7 @@ define("SAVESCORE", true);
 define("TPSMIN", 1800); // Temps minimum pour l'affichage des temps dans le classement
 
 // SOUCIS SUR LE JEU
-define("ROSIER_CRASH", false); // est-ce que l'énigme des rosiers a un soucis ?
+define("ROSIER_CRASH", true); // est-ce que l'énigme des rosiers a un soucis ?
 define("CABANE_CRASH", true); // est-ce que l'élément cube est crash (forgeron sur la map)
 
 //Paramètres de ce jeu spécifiquement
