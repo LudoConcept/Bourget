@@ -109,6 +109,9 @@ function finirMission($etat_missions, $key) {
 		case ROSES:						
 			break;
 		case ESPRIT02:
+			if (ROSIER_CRASH) {
+				$etat_missions[ROSES] = FINISH;
+			}
 			if (isEspritTerminated($etat_missions)) {
 				$etat_missions[ESPRIT_FIN] = ACTIVE;
 			}
