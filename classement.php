@@ -24,9 +24,14 @@ include_once('./action/bdd_connect.php');
 		<h4 class="text-center m-2">Classement <!--des 30 derniers jours--></h2>
 		<?php
 	// requete 30 derniers jours
-	$timestamp30days = strtotime(date("m/d/Y")) - 2592000;
-	$timestamp1year = strtotime(date("m/d/Y")) - 31536000;
-	$usedtimestamp = $timestamp1year;
+	$timestampToday = strtotime(date("m/d/Y"));
+	$timestamp30days = $timestampToday - 2592000;
+	$timestamp1year = $timestampToday - 31536000;
+	if (strtotime(("10 september 2025")) == $timestampToday || strtotime("9 september 2025") == $timestampToday) {
+		$usedtimestamp = $timestampToday; 
+	} else {
+		$usedtimestamp = $timestamp1year;
+	}
 	$sql = "SELECT * FROM `game` WHERE `end` > ? AND `duree` > ? ORDER BY duree ASC";
 	// requete 50 meilleurs
 	// "SELECT * FROM `game` ORDER BY duree ASC LIMIT 0, 50"
