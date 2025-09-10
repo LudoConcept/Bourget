@@ -1,6 +1,6 @@
 <?php
 include ('./includes/include_headerhtml.php');
-include ('./includes/include_menu.php');
+// include ('./includes/include_menu.php');
 include_once('./action/bdd_connect.php');
 ?>
 
@@ -98,7 +98,7 @@ include ('./includes/include_external_script.php');
 	<script>
 		$(function(){
 			$("#bloc_loading").hide();
-			$("#menuprincipal").remove(); // on retire le menu
+			// $("#menuprincipal").remove(); // on retire le menu
 			$(document)
 				.ajaxStart(function(){
 					// console.log("ON");

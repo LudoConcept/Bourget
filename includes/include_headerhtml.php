@@ -4,7 +4,9 @@ include_once('./param/global.php');
 include_once('./fonctions/php_mission.php');
 include_once('./fonctions/php_cookies.php');
 
-if (!cookieExists(COOKIE_MISSIONS))
+$currentPage = basename($_SERVER['PHP_SELF']);
+
+if ($currentPage !== "classement.php" && !cookieExists(COOKIE_MISSIONS))
 	header('Location: ./index.php');
 
 ?>
