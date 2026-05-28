@@ -21,7 +21,7 @@ include_once('./action/bdd_connect.php');
 	?>
 	
 	<div class="m-1">
-		<h4 class="text-center m-2">Classement <!--des 30 derniers jours--></h2>
+		<h4 class="text-center m-2">Classement du Jour !</h2>
 		<?php
 		$usedtimestamp = strtotime(date("m/d/Y")); 
 	
