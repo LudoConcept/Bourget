@@ -6,7 +6,7 @@ include_once('./fonctions/php_cookies.php');
 
 $currentPage = basename($_SERVER['PHP_SELF']);
 
-if ($currentPage !== "classement.php" && !cookieExists(COOKIE_MISSIONS))
+if ($currentPage !== "classement.php" && $currentPage !== "ClassementDuJour.php" && !cookieExists(COOKIE_MISSIONS))
 	header('Location: ./index.php');
 
 ?>
